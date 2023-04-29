@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:05:28 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/25 10:47:25 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/29 14:19:33 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./minilibx-linux/mlx.h"
-#include "./minilibx-linux/mlx_int.h"
 
 int	main(void)
 {

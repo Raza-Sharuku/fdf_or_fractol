@@ -1,7 +1,7 @@
 CC = cc
 NAME = $(NAME)
 NAME	=	fdf
-CFLAGS	=	-L/usr/X11R6/lib  -lmlx -lX11 -lXext -framework OpenGL -framework AppKit
+CFLAGS	=	-lmlx -framework OpenGL -framework AppKit
 INC		=	-I./libs/libft/ -I./libs/ft_printf/ -I./minilibx-linux
 
 SRCS	=	main.c
