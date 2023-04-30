@@ -1,7 +1,12 @@
 CC = cc
 NAME = $(NAME)
 NAME	=	fdf
-CFLAGS	=	-lmlx -framework OpenGL -framework AppKit
+
+# ↓this for 42cluster
+# CFLAGS	=	-lmlx -framework OpenGL -framework AppKit
+# ↓this for my Macbook
+CFLAGS	=	-L/usr/X11R6/lib -lX11 -lXext -framework OpenGL -framework AppKit 
+
 INC		=	-I./libs/libft/ -I./libs/ft_printf/ -I./minilibx-linux
 
 SRCS	=	main.c
