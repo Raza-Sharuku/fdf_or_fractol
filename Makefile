@@ -1,11 +1,12 @@
 CC = cc
 NAME = $(NAME)
-NAME	=	fdf
+NAME	=	myfdf
+CFLAGS	=	-Wall -Wextra -Werror 
 
 # ↓this for 42cluster
-# CFLAGS	=	-lmlx -framework OpenGL -framework AppKit
+MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
 # ↓this for my Macbook
-CFLAGS	=	-L/usr/X11R6/lib -lX11 -lXext -framework OpenGL -framework AppKit 
+# MLX_FLAGS	=	-L/usr/X11R6/lib -lX11 -lXext -framework OpenGL -framework AppKit 
 
 INC		=	-I./libs/libft/ -I./libs/ft_printf/ -I./minilibx-linux
 
@@ -23,7 +24,7 @@ $(NAME):	$(OBJS)
 	$(MAKE) -C ./libs/libft
 	$(MAKE) -C ./libs/ft_printf
 	$(MAKE) -C ./minilibx-linux
-	$(CC) $(CFLAGS) $(LIBFT) $(FT_PRINTF) $(MINILIBX) $(SRCS) -o $(NAME)
+	$(CC) $(CFLAGS) $(MLX_FLAGS) $(LIBFT) $(FT_PRINTF) $(MINILIBX) $(SRCS) -o $(NAME)
 
 clean:
 	$(MAKE) -C ./libs/libft clean

@@ -6,7 +6,7 @@
 #    By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 16:42:18 by sraza             #+#    #+#              #
-#    Updated: 2023/04/29 14:49:57 by sraza            ###   ########.fr        #
+#    Updated: 2023/04/30 12:21:33 by sraza            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,10 @@ SRCS_B = ft_lstlast.c \
 			ft_lstclear.c \
 			ft_lstiter.c \
 			ft_lstmap.c \
+			get_next_line.c \
+			get_next_line_utils.c \
+			get_next_line_bonus.c \
+			get_next_line_utils_bonus.c 
 
 OBJS = ${SRCS:.c=.o}
 

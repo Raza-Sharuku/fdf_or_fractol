@@ -3,20 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:05:28 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/04/29 17:07:14 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/04/30 14:56:16 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./minilibx-linux/mlx.h"
+#include "fdf.h"
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
+	char *s;
+	int i;
+	if (argc != 2 && argc != 4)
+	{
+		s = strerror(2);
+		ft_printf("%s\n", s);
+	}
+	i = ft_printf("%s\n", argv[1]);
+	if (i != 0)
+		return (0);
+
 	void	*mlx;
 	void	*mlx_win;
-	int		i;
 
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, 1000, 1000, "NAKANO YOUSUKE!");
