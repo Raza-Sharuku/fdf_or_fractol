@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:05:28 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/02 10:13:31 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/02 20:52:39 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ int	main(int argc, char *argv[])
 {
 	// char *s;
 	// int i;
-	ft_arg_error(argc);
-
-	if (argv[1] == argv[2])
-		return (0);
+	ft_arg_error(argc, argv);
+	printf("Nothing is wrong with arguments\n");
 	return (0);
 	
 	// if (i != 0)

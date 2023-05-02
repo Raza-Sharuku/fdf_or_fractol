@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/02 10:12:24 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/02 20:51:45 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,15 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <limits.h>
+# include <fcntl.h>
+# include <sys/types.h>
+# include <sys/stat.h>
 # include"./libs/ft_printf/ft_printf.h"
 # include"./libs/libft/libft.h"
 
-// void	ft_arg_error(int argc, char *argv[]);
-void	ft_arg_error(int argc);
-
+void				ft_arg_error(int argc, char *argv[]);
+void				is_file_exit(char *path);
+void				argc_error(int argc);
 
 
 #endif
