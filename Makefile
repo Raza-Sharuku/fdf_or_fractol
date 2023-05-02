@@ -4,13 +4,14 @@ NAME	=	myfdf
 CFLAGS	=	-Wall -Wextra -Werror 
 
 # ↓this for 42cluster
-MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
+# MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
 # ↓this for my Macbook
-# MLX_FLAGS	=	-L/usr/X11R6/lib -lX11 -lXext -framework OpenGL -framework AppKit 
+MLX_FLAGS	=	-L/usr/X11R6/lib -lX11 -lXext -framework OpenGL -framework AppKit 
 
 INC		=	-I./libs/libft/ -I./libs/ft_printf/ -I./minilibx-linux
 
-SRCS	=	main.c
+SRCS	=	main.c \
+			ft_error.c
 
 OBJS = ${SRCS:%.c=%.o}
 

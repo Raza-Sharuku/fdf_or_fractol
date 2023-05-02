@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/04/30 14:51:12 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/02 10:12:24 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # include"./libs/ft_printf/ft_printf.h"
 # include"./libs/libft/libft.h"
 
+// void	ft_arg_error(int argc, char *argv[]);
+void	ft_arg_error(int argc);
 
 
 
