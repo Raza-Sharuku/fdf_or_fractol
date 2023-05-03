@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/03 16:59:26 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/03 20:46:06 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,19 @@
 # include"./libs/ft_printf/ft_printf.h"
 # include"./libs/libft/libft.h"
 
-void				ft_arg_error(int argc, char *argv[]);
-void				is_file_exit(char *path);
+typedef struct s_array
+{
+	int	*array;
+	int	x_len;
+	int	y_len;
+	int	height;
+	int expansion;
+}			t_array;
+void				ft_arg_error(int argc, char *argv[], t_array *a);
+void				is_file_exit(char *path, t_array *a);
 void				argc_error(int argc);
-void				is_map_square(int fd);
+void				is_map_square(int fd, t_array *a);
+void				*make_array(char *argv[], t_array *a);
+
 
 #endif
