@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:26:29 by sraza             #+#    #+#             */
-/*   Updated: 2023/02/06 10:31:25 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/03 16:38:05 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <ctype.h>
 # include <limits.h>
 # include <unistd.h>
+# include"get_next_line.h"
+# include"get_next_line_bonus.h"
 
 int				ft_atoi(const char *str);
 void			ft_bzero(void *s, size_t n);
