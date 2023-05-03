@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:37:40 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/03 16:57:39 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/03 16:58:43 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	argc_error(int argc)
 	}
 }
 
-
 void	is_file_exit(char *path)
 {
 	int fd;
@@ -62,7 +61,6 @@ void	is_file_exit(char *path)
 	close(fd);
 	return ;
 }
-
 
 void	ft_arg_error(int argc, char *argv[])
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/02 20:51:45 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/03 16:59:26 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@
 void				ft_arg_error(int argc, char *argv[]);
 void				is_file_exit(char *path);
 void				argc_error(int argc);
-
+void				is_map_square(int fd);
 
 #endif
