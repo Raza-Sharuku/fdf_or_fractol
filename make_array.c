@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 19:56:54 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/05 20:04:17 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/05 20:47:20 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,39 +32,57 @@ char ***splited_map(int fd, t_array *a)
 	return (str2);
 }
 
-int **make_int_list(char ***str, t_array *a)
+void	make_int_list(char ***str, t_array *a)
 {
-	int	**map;
-	int	i;
-	int	j;
+	char	**color_s;
+	int		i;
+	int		j;
 
-	map = (int **)malloc(sizeof(int *) * a->y_len);
+	a->array = malloc(sizeof(int *) * a->y_len);
 	i = 0;
 	while (i < a->y_len)
 	{
-		map[i] = (int *)malloc(sizeof(int ) * a->x_len);
+		a->array[i] = malloc(sizeof(int ) * a->x_len);
 		j = 0;
 		while (str[i][j])
 		{
-			// printf("ft_atoi_fdf(str[i][j] = %i",ft_atoi(str[i][j]));
-			map[i][j] = ft_atoi_fdf(str[i][j]);
-			if (map[i][j] < 10)
-				printf("%i  ", map[i][j]);
-			else if (map[i][j] > 9)
-				printf("%i ", map[i][j]);
+			color_s = ft_split(str[i][j], ',');
+			if (color_s[1] == NULL)
+				a->array[i][j].height = ft_atoi_fdf(str[i][j]);
+			if (color_s[1] != NULL)
+			{
+				a->array[i][j].height = ft_atoi_fdf(color_s[0]);
+				printf("color_s[1] = %s\n", color_s[1]);
+				a->array[i][j].color = ft_atoi_fdf(color_s[1]);
+			}
+			if (a->array[i][j].height < 10)
+			{
+				printf("%i  ", a->array[i][j].height);
+				printf("%i  ", a->array[i][j].color);
+			}
+			else if (a->array[i][j].height > 9)
+			{
+				printf("%i ", a->array[i][j].height);
+				printf("%i  ", a->array[i][j].color);
+			}
 			j++;
 		}
 		printf("\n");
 		i++;
 	}
 	printf("\n========================================     ==========================================\n");
-	return (map);
+	return ;
 }
 
+/*
+文字列ベースの情報を３次元配列として確保することできた、
+次にInt型への変換として高さと色の情報も付与した状態で確保することができた、、
+次にやることは文字列の３次元配列のFreeそしてここまでのリークを調べること。
+
+*/
 void *make_array(char *argv[], t_array *a)
 {
 	char	***str;
-	int		**map;
 	int		i;
 	int		fd;
 	// int 	j;
@@ -73,20 +91,7 @@ void *make_array(char *argv[], t_array *a)
 	fd = open(argv[1], O_RDONLY);
 	str = splited_map(fd, a);
 	close(fd);
-	map = make_int_list(str, a);
-	// while (i < a->y_len)
-	// {
-	// 	j = 0;
-	// 	while (str[i][j])
-	// 	{
-	// 		if (ft_strlen(str[i][j]) == 1)
-	// 			printf("@%s  ", str[i][j]);
-	// 		if (ft_strlen(str[i][j]) == 2)
-	// 			printf("@%s ", str[i][j]);
-	// 		j++;
-	// 	}
-	// 	write(1,"\n",1);
-	// 	i++;
-	// }
+	make_int_list(str, a);
+
 	return (a);
 }

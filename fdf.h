@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/05 19:38:18 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/05 20:42:43 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,14 @@
 # include"./libs/ft_printf/ft_printf.h"
 # include"./libs/libft/libft.h"
 
+typedef struct s_info
+{
+	int height;
+	int color;
+}				t_info;
 typedef struct s_array
 {
-	int	**array;
+	struct s_info	**array;
 	int	x_len;
 	int	y_len;
 	int	height;
