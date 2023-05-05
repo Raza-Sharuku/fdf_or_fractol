@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/05 19:25:41 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/05 19:38:18 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ void				is_map_square(int fd, t_array *a);
 void				*make_array(char *argv[], t_array *a);
 void				*ft_free_fdf(char **result);
 char 				***splited_map(int fd, t_array *a);
-
+long				ft_atoi_fdf(const char *str);
 
 #endif
