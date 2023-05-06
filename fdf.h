@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/05 20:42:43 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/06 11:53:14 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ typedef struct s_array
 }			t_array;
 void				ft_arg_error(int argc, char *argv[], t_array *a);
 void				is_file_exit(char *path, t_array *a);
-void				argc_error(int argc);
 void				is_map_square(int fd, t_array *a);
 void				*make_array(char *argv[], t_array *a);
 void				*ft_free_fdf(char **result);

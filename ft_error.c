@@ -3,58 +3,85 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:37:40 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/05 17:22:22 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/06 12:46:36 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
 
-void	file_is_empty(void)
+int	count_lens(char **str)
 {
-	ft_putstr_fd("No data found.\n", 2);
-	exit(1);
+	int	i;
+	
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
-void	is_map_square(int fd, t_array *a)
+int	is_map_ok(int fd, t_array *a, int next_len)
 {
-	int		first_len;
-	int		next_len;
 	char	*str;
+	char	**splited;
 
-	str = get_next_line(fd);
-	if (str == NULL)
-		file_is_empty();
-	first_len = ft_strlen(str);
 	a->y_len = 1;
+	str = NULL;
 	while (*str)
 	{
 		str = get_next_line(fd);
 		if (str == NULL)
 			break ;
-		next_len = ft_strlen(str);
+		splited = ft_split(str, ' ');
+		next_len = count_lens(splited);
+		ft_free_fdf(splited);
+		free(str);
 		a->y_len++;
-		if (first_len != next_len)
+		if (a->x_len != next_len)
 		{
 			ft_putstr_fd("Found wrong line length. Exiting.\n", 2);
 			exit(1);
 		}
 	}
-	a->x_len = first_len;
-	return ;
+	return (a->y_len);
 }
 
-void	argc_error(int argc)
+void	is_map_square(int fd, t_array *a)
 {
-	if (argc == 2 || argc == 4)
-		return ;
-	else
+	int		next_len;
+	char	*str;
+	char	**splited;
+
+	next_len = 0;
+	str = get_next_line(fd);
+	if (str == NULL)
 	{
-		write(2, "Usage : ./fdf <filename> [ case_size z_size ]\n", 46);
+		ft_putstr_fd("No data found.\n", 2);
 		exit(1);
 	}
+	splited = ft_split(str, ' ');
+	a->x_len = count_lens(splited);
+	ft_free_fdf(splited);
+	free(str);
+	a->y_len = is_map_ok(fd, a, next_len);
+	// while (*str)
+	// {
+	// 	str = get_next_line(fd);
+	// 	if (str == NULL)
+	// 		break ;
+		
+	// 	splited = ft_split(str, ' ');
+	// 	next_len = count_lens(splited);
+	// 	a->y_len++;
+	// 	if (first_len != next_len)
+	// 	{
+	// 		ft_putstr_fd("Found wrong line length. Exiting.\n", 2);
+	// 		exit(1);
+	// 	}
+	// }
+	return ;
 }
 
 void	is_file_exit(char *path, t_array *a)
@@ -77,7 +104,13 @@ void	is_file_exit(char *path, t_array *a)
 
 void	ft_arg_error(int argc, char *argv[], t_array *a)
 {
-	argc_error(argc);
+	if (argc == 2 || argc == 4)
+		return ;
+	else if (!(argc == 2 || argc == 4))
+	{
+		write(2, "Usage : ./fdf <filename> [ case_size z_size ]\n", 46);
+		exit(1);
+	}
 	is_file_exit(argv[1], a);
 	return ;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_array.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 19:56:54 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/05 20:47:20 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/06 11:11:07 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,8 @@ void	make_int_list(char ***str, t_array *a)
 void *make_array(char *argv[], t_array *a)
 {
 	char	***str;
-	int		i;
 	int		fd;
-	// int 	j;
-	
-	i = 0;
+
 	fd = open(argv[1], O_RDONLY);
 	str = splited_map(fd, a);
 	close(fd);
