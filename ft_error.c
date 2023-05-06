@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:37:40 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/06 17:45:35 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/06 19:53:47 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	count_lens(char **str)
 {
 	int	i;
-	
+
 	i = 0;
 	while (str[i])
 		i++;

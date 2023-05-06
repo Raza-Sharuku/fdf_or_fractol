@@ -3,31 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   make_array.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 19:56:54 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/06 18:06:22 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/06 20:42:54 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
 
-char ***splited_map(int fd, t_array *a)
+char	***splited_map(int fd, t_array *a)
 {
 	char	**str;
 	char	***str2;
 	int		i;
 
 	i = 0;
-	str = (char **)malloc(sizeof(char *) * (a->y_len) + 1);
-	str2 = (char ***)malloc(sizeof(char **) * (a->y_len) + 1);
+	str = (char **)malloc(sizeof(char *) * (a->y_len + 1));
+	str2 = (char ***)malloc(sizeof(char **) * (a->y_len + 1));
 	while (i < a->y_len)
 	{
+		str2[i] = (char **)malloc(sizeof(char *) * (a->x_len + 1));
 		str[i] = get_next_line(fd);
 		str2[i] = ft_split(str[i], ' ');
 		i++;
 	}
 	str[i] = NULL;
+	str2[i] = NULL;
 	ft_free_fdf(str);
 	return (str2);
 }
@@ -42,7 +44,7 @@ void	make_int_list(char ***str, t_array *a)
 	i = 0;
 	while (i < a->y_len)
 	{
-		a->array[i] = malloc(sizeof(int ) * a->x_len);
+		a->array[i] = malloc(sizeof(int *) * a->x_len);
 		j = 0;
 		while (str[i][j])
 		{
@@ -51,25 +53,28 @@ void	make_int_list(char ***str, t_array *a)
 			a->array[i][j].color = 0;
 			if (color_s[1] != NULL)
 				a->array[i][j].color = ft_atoi_fdf(color_s[1]);
-			if (a->array[i][j].height < 10)
-			{
-				printf("%i  ", a->array[i][j].height);
-				if (a->array[i][j].color != 0)
-					printf(",%i  ", a->array[i][j].color);
-			}
-			else if (a->array[i][j].height > 9)
-			{
-				printf("%i ", a->array[i][j].height);
-				if (a->array[i][j].color != 0)
-					printf(",%i", a->array[i][j].color);
-			}
+			if (color_s[1] != NULL)
+				ft_free_fdf(color_s);
 			j++;
 		}
-		printf("\n");
 		i++;
 	}
-	printf("\n========================================     ==========================================\n");
 	return ;
+}
+
+void	*ft_free_three(char ***str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		ft_free_fdf(str[i]);
+		i++;
+	}
+	free(str);
+	str = NULL;
+	return (NULL);
 }
 
 /*
@@ -78,7 +83,7 @@ void	make_int_list(char ***str, t_array *a)
 次にやることは文字列の３次元配列のFreeそしてここまでのリークを調べること。
 
 */
-void *make_array(char *argv[], t_array *a)
+void	*make_array(char *argv[], t_array *a)
 {
 	char	***str;
 	int		fd;
@@ -87,6 +92,6 @@ void *make_array(char *argv[], t_array *a)
 	str = splited_map(fd, a);
 	close(fd);
 	make_int_list(str, a);
-
-	return (a);
+	str = ft_free_three(str);
+	return (a->array);
 }
