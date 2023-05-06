@@ -1,7 +1,7 @@
 CC = cc
 NAME = $(NAME)
 NAME	=	myfdf
-CFLAGS	=	-Wall -Wextra -Werror 
+CFLAGS	=	-Wall -Wextra -Werror
 
 # ↓this for 42cluster
 # MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit

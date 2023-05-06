@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 19:56:54 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/06 11:11:07 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/06 18:06:22 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,23 +47,21 @@ void	make_int_list(char ***str, t_array *a)
 		while (str[i][j])
 		{
 			color_s = ft_split(str[i][j], ',');
-			if (color_s[1] == NULL)
-				a->array[i][j].height = ft_atoi_fdf(str[i][j]);
+			a->array[i][j].height = ft_atoi_fdf(str[i][j]);
+			a->array[i][j].color = 0;
 			if (color_s[1] != NULL)
-			{
-				a->array[i][j].height = ft_atoi_fdf(color_s[0]);
-				printf("color_s[1] = %s\n", color_s[1]);
 				a->array[i][j].color = ft_atoi_fdf(color_s[1]);
-			}
 			if (a->array[i][j].height < 10)
 			{
 				printf("%i  ", a->array[i][j].height);
-				printf("%i  ", a->array[i][j].color);
+				if (a->array[i][j].color != 0)
+					printf(",%i  ", a->array[i][j].color);
 			}
 			else if (a->array[i][j].height > 9)
 			{
 				printf("%i ", a->array[i][j].height);
-				printf("%i  ", a->array[i][j].color);
+				if (a->array[i][j].color != 0)
+					printf(",%i", a->array[i][j].color);
 			}
 			j++;
 		}

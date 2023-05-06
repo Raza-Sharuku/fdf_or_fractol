@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:37:40 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/06 12:46:36 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/06 17:45:35 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,11 @@ int	count_lens(char **str)
 
 int	is_map_ok(int fd, t_array *a, int next_len)
 {
-	char	*str;
 	char	**splited;
+	char	*str;
 
 	a->y_len = 1;
-	str = NULL;
-	while (*str)
+	while (1)
 	{
 		str = get_next_line(fd);
 		if (str == NULL)
@@ -66,21 +65,6 @@ void	is_map_square(int fd, t_array *a)
 	ft_free_fdf(splited);
 	free(str);
 	a->y_len = is_map_ok(fd, a, next_len);
-	// while (*str)
-	// {
-	// 	str = get_next_line(fd);
-	// 	if (str == NULL)
-	// 		break ;
-		
-	// 	splited = ft_split(str, ' ');
-	// 	next_len = count_lens(splited);
-	// 	a->y_len++;
-	// 	if (first_len != next_len)
-	// 	{
-	// 		ft_putstr_fd("Found wrong line length. Exiting.\n", 2);
-	// 		exit(1);
-	// 	}
-	// }
 	return ;
 }
 
@@ -104,9 +88,7 @@ void	is_file_exit(char *path, t_array *a)
 
 void	ft_arg_error(int argc, char *argv[], t_array *a)
 {
-	if (argc == 2 || argc == 4)
-		return ;
-	else if (!(argc == 2 || argc == 4))
+	if (!(argc == 2 || argc == 4))
 	{
 		write(2, "Usage : ./fdf <filename> [ case_size z_size ]\n", 46);
 		exit(1);
