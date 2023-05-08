@@ -1,19 +1,23 @@
 CC = cc
 NAME = $(NAME)
 NAME	=	myfdf
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror 
+# -fsanitize=address
 
 # ↓this for 42cluster
-MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
+# MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
 # ↓this for my Macbook
-# MLX_FLAGS	=	-L/usr/X11R6/lib -lX11 -lXext -framework OpenGL -framework AppKit 
+MLX_FLAGS	=	-L/usr/X11R6/lib -lX11 -lXext -framework OpenGL -framework AppKit 
 
 INC		=	-I./libs/libft/ -I./libs/ft_printf/ -I./minilibx-linux
 
 SRCS	=	main.c \
 			ft_error.c \
 			make_array.c \
-			ft_atoi_4_fdf.c
+			ft_atoi_4_fdf.c \
+			malloc_utils.c \
+			atoi_hexa_demical.c \
+			malloc_utils2.c 
 
 OBJS = ${SRCS:%.c=%.o}
 

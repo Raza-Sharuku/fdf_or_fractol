@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:05:28 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/06 20:46:32 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/08 16:59:21 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	print_array(t_array *a)
 	int	j;
 
 	i = 0;
+	printf("\n========================================     ==========================================\n\n");
 	while (i < a->y_len)
 	{
 		j = 0;
@@ -34,7 +35,7 @@ void	print_array(t_array *a)
 			{
 				printf("%i ", a->array[i][j].height);
 				if (a->array[i][j].color != 0)
-					printf(",%i", a->array[i][j].color);
+					printf(",%i  ", a->array[i][j].color);
 			}
 			j++;
 		}
@@ -49,10 +50,18 @@ int	main(int argc, char *argv[])
 	t_array	a;
 
 	ft_arg_error(argc, argv, &a);
-	// printf("a.x_len = %d || a.y_len = %d\n", a.x_len, a.y_len);
-	// printf("Nothing is wrong with arguments\n");
+	printf("a.x_len = %d || a.y_len = %d\n", a.x_len, a.y_len);
 	a.array = make_array(argv, &a);
 	print_array(&a);
-	
+	ft_free_int2(&a);
+	// system("leaks myfdf");
 	return (0);
+}
+
+
+__attribute__((destructor))
+void    destructor(void)
+{
+	system("leaks -q myfdf");
+
 }

@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/06 11:53:14 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/08 16:33:48 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include"./libs/ft_printf/ft_printf.h"
 # include"./libs/libft/libft.h"
 
+// main.c
 typedef struct s_info
 {
 	int height;
@@ -38,12 +39,28 @@ typedef struct s_array
 	int	height;
 	int expansion;
 }			t_array;
+// ft_error.c
 void				ft_arg_error(int argc, char *argv[], t_array *a);
 void				is_file_exit(char *path, t_array *a);
 void				is_map_square(int fd, t_array *a);
+int					count_lens(char **str);
+int					is_map_ok(int fd, t_array *a, int next_len);
+// make_array.c
 void				*make_array(char *argv[], t_array *a);
-void				*ft_free_fdf(char **result);
-char 				***splited_map(int fd, t_array *a);
+void				make_int_list(char ***str, t_array *a);
+char				***splited_map(int fd, t_array *a);
+// ft_atoi_4_fdf.c
 long				ft_atoi_fdf(const char *str);
+// malloc_utils.c
+void				*ft_free_three(char ***str);
+void				*ft_free_fdf(char **result);
+char				**two_malloc(char ***str2, int len, int i);
+char				***three_malloc(t_array *a);
+// malloc_utils2.c
+char				*int_malloc(t_array *a, int i, int len);
+void				*ft_free_int2(t_array *a);
+void				*ft_free_int(t_info **b, t_array *a);
+// atoi_hexa_demical.c
+int	to_demical(char *str);
 
 #endif

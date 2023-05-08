@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_4_fdf.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 19:58:39 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/03 19:58:41 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/07 14:39:07 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,20 +80,4 @@ long	ft_atoi_fdf(const char *str)
 	if (num > INT_MAX || num < INT_MIN)
 		return ((long)INT_MAX + 1);
 	return (num);
-}
-
-void	*ft_free_fdf(char **result)
-{
-	size_t	i;
-
-	i = 0;
-	while (result[i] != NULL)
-	{
-		free(result[i]);
-		result[i] = NULL;
-		i++;
-	}
-	free(result);
-	result = NULL;
-	return (NULL);
 }
