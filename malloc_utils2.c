@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 21:07:26 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/09 17:40:48 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/09 17:43:53 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	ft_free_int2(t_array *a)
 		while (j < a->x_len)
 		{
 			free(a->array[i][j]);
-			// printf("free中 a->array[%i][%i]\n", i, j);
 			j++;
 		}
 		free(a->array[i]);
@@ -44,7 +43,7 @@ void	ft_free_int2(t_array *a)
 // 	if (errno != 0)
 // 	{
 // 		if (i != 0)
-			
+
 // 		ft_printf("%s\n", strerror(errno));
 // 		exit(1);
 // 	}

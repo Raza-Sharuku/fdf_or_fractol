@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:05:28 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/09 17:41:48 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/09 17:44:11 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int	main(int argc, char *argv[])
 	ft_free_int2(&a);
 	return (0);
 }
-
 
 // __attribute__((destructor))
 // void    destructor(void)

@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 19:56:54 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/09 17:39:57 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/09 17:43:21 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ void	make_int_list(char ***str, t_array *a)
 			a->array[i][j][1] = 0;
 			if (color_s[1] != NULL)
 				a->array[i][j][1] = to_demical(color_s[1]);
-			// if (color_s[1] != NULL)
-				ft_free_fdf(color_s);
+			ft_free_fdf(color_s);
 			j++;
 		}
 		i++;
