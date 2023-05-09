@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/08 16:33:48 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/09 17:40:59 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,10 @@
 # include"./libs/ft_printf/ft_printf.h"
 # include"./libs/libft/libft.h"
 
-// main.c
-typedef struct s_info
-{
-	int height;
-	int color;
-}				t_info;
+// structs use in fdf
 typedef struct s_array
 {
-	struct s_info	**array;
+	int	***array;
 	int	x_len;
 	int	y_len;
 	int	height;
@@ -58,8 +53,7 @@ char				**two_malloc(char ***str2, int len, int i);
 char				***three_malloc(t_array *a);
 // malloc_utils2.c
 char				*int_malloc(t_array *a, int i, int len);
-void				*ft_free_int2(t_array *a);
-void				*ft_free_int(t_info **b, t_array *a);
+void				ft_free_int2(t_array *a);
 // atoi_hexa_demical.c
 int	to_demical(char *str);
 

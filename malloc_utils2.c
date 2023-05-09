@@ -6,44 +6,33 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 21:07:26 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/08 20:56:05 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/09 17:40:48 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
 
 /*ここではあらゆるMallocをしてNullじゃない場合の値を返す*/
-
-void	*ft_free_int(t_info **b, t_array *a)
-{
-	int	j;
-
-	j = 0;
-	while (j < a->x_len)
-	{
-		// printf("a->x_len = %i\n", a->x_len);
-		printf(" b[j(%i)]->height = \n", j);
-		free(b[j]);
-		b[j]= NULL;
-		j++;
-	}
-	free(b);
-	return (b);
-}
-
-void	*ft_free_int2(t_array *a)
+void	ft_free_int2(t_array *a)
 {
 	int	i;
+	int	j;
 
 	i = 0;
 	while (i < a->y_len)
 	{
-		ft_free_int(&a->array[i], a);
-		a->array[i] = NULL;
+		j = 0;
+		while (j < a->x_len)
+		{
+			free(a->array[i][j]);
+			// printf("free中 a->array[%i][%i]\n", i, j);
+			j++;
+		}
+		free(a->array[i]);
 		i++;
 	}
 	free(a->array);
-	return (NULL);
+	return ;
 }
 
 // char	*int_malloc(t_array *a, int i, int len)

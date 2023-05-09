@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 19:56:54 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/08 20:45:25 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/09 17:39:57 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ char	***splited_map(int fd, t_array *a)
 	}
 	str[i] = NULL;
 	str2[i] = NULL;
-	// printf("splitted len is %i \n", count_lens(str2[1]));
 	ft_free_fdf(str);
 	return (str2);
 }
@@ -40,24 +39,24 @@ void	make_int_list(char ***str, t_array *a)
 	int		i;
 	int		j;
 
-	a->array = (t_info **)malloc(sizeof(t_info *) * a->y_len);
+	a->array = (int ***)malloc(sizeof(int **) * a->y_len);
 	i = 0;
 	while (i < a->y_len)
 	{
-		a->array[i] = (t_info *)malloc(sizeof(t_info) * a->x_len);
+		a->array[i] = (int **)malloc(sizeof(int *) * a->x_len);
 		j = 0;
 		while (j < a->x_len)
 		{
+			a->array[i][j] = (int *)malloc(sizeof(int) * 2);
 			color_s = ft_split(str[i][j], ',');
-			a->array[i][j].height = ft_atoi_fdf(str[i][j]);
-			a->array[i][j].color = 0;
+			a->array[i][j][0] = ft_atoi_fdf(str[i][j]);
+			a->array[i][j][1] = 0;
 			if (color_s[1] != NULL)
-				a->array[i][j].color = to_demical(color_s[1]);
-			if (color_s[1] != NULL)
+				a->array[i][j][1] = to_demical(color_s[1]);
+			// if (color_s[1] != NULL)
 				ft_free_fdf(color_s);
 			j++;
 		}
-		printf("%i ", j);
 		i++;
 	}
 	return ;

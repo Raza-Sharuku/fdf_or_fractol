@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:05:28 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/08 16:59:21 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/09 17:41:48 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@ void	print_array(t_array *a)
 		j = 0;
 		while (j < a->x_len)
 		{
-			if (a->array[i][j].height < 10)
+			if (a->array[i][j][0] < 10)
 			{
-				printf("%i  ", a->array[i][j].height);
-				if (a->array[i][j].color != 0)
-					printf(",%i  ", a->array[i][j].color);
+				printf("%i  ", a->array[i][j][0]);
+				if (a->array[i][j][1] != 0)
+					printf(",%i  ", a->array[i][j][1]);
 			}
-			else if (a->array[i][j].height > 9)
+			else if (a->array[i][j][0] > 9)
 			{
-				printf("%i ", a->array[i][j].height);
-				if (a->array[i][j].color != 0)
-					printf(",%i  ", a->array[i][j].color);
+				printf("%i ", a->array[i][j][0]);
+				if (a->array[i][j][1] != 0)
+					printf(",%i  ", a->array[i][j][1]);
 			}
 			j++;
 		}
@@ -54,14 +54,13 @@ int	main(int argc, char *argv[])
 	a.array = make_array(argv, &a);
 	print_array(&a);
 	ft_free_int2(&a);
-	// system("leaks myfdf");
 	return (0);
 }
 
 
-__attribute__((destructor))
-void    destructor(void)
-{
-	system("leaks -q myfdf");
+// __attribute__((destructor))
+// void    destructor(void)
+// {
+// 	system("leaks -q myfdf");
 
-}
+// }
