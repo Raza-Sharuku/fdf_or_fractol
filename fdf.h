@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/09 17:40:59 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/10 10:20:15 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct s_array
 	int	y_len;
 	int	height;
 	int expansion;
+	void	*mlx_ptr;
+	void	*win;
 }			t_array;
 // ft_error.c
 void				ft_arg_error(int argc, char *argv[], t_array *a);
@@ -56,5 +58,7 @@ char				*int_malloc(t_array *a, int i, int len);
 void				ft_free_int2(t_array *a);
 // atoi_hexa_demical.c
 int	to_demical(char *str);
+// draw.c
+void				draw_window(t_array *a);
 
 #endif

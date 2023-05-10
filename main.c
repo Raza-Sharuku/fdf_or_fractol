@@ -6,11 +6,12 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:05:28 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/09 17:44:11 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/10 10:58:05 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./minilibx-linux/mlx.h"
+#include "./minilibx-linux/mlx_int.h"
 #include "fdf.h"
 
 void	print_array(t_array *a)
@@ -50,9 +51,13 @@ int	main(int argc, char *argv[])
 	t_array	a;
 
 	ft_arg_error(argc, argv, &a);
-	printf("a.x_len = %d || a.y_len = %d\n", a.x_len, a.y_len);
+	// printf("a.x_len = %d || a.y_len = %d\n", a.x_len, a.y_len);
 	a.array = make_array(argv, &a);
-	print_array(&a);
+	// print_array(&a);
+	a.mlx_ptr = mlx_init();
+	a.win = mlx_new_window(a.mlx_ptr, 600, 600, "raza");
+	
+	draw_window(&a);
 	ft_free_int2(&a);
 	return (0);
 }
