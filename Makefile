@@ -17,7 +17,8 @@ SRCS	=	main.c \
 			ft_atoi_4_fdf.c \
 			malloc_utils.c \
 			atoi_hexa_demical.c \
-			malloc_utils2.c 
+			malloc_utils2.c \
+			draw.c
 
 OBJS = ${SRCS:%.c=%.o}
 

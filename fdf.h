@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/09 21:02:42 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/10 21:08:05 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,14 @@
 // structs use in fdf
 typedef struct s_array
 {
-	int	***array;
-	int	x_len;
-	int	y_len;
-	int	height;
-	int expansion;
+	int		***array;
+	int		x_len;
+	int		y_len;
+	int		height;
+	void	*mlx_ptr;
+	void	*win;
+	int 	zoom;
+	int 	color;
 }			t_array;
 // ft_error.c
 void				ft_arg_error(int argc, char *argv[], t_array *a);
@@ -57,5 +60,10 @@ char				*int_malloc(t_array *a, int i, int len);
 void				ft_free_int2(t_array *a);
 // atoi_hexa_demical.c
 int	to_demical(char *str);
+// draw.c
+void				draw_window(t_array *a);
+void				bresenham(float x, float y, float x1, float y1, t_array *a);
+void				draw_win(t_array *a);
+
 
 #endif
