@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 09:33:56 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/10 11:33:30 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/10 17:09:19 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,17 @@ void draw_window(t_array *a)
 	int i;
 	int j;
 
+
 	i = 0;
 	while (i < 500)
 	{
 		j = 0;
 		while (j < 500)
 		{
-			mlx_pixel_put(a->mlx_ptr, a->win, i, j, 0x4433FF);
+			mlx_pixel_put(a->mlx_ptr, a->win, i, j, 0x4444FF);
 			j = j + 10;
 		}
-		i = i + 1;
+		i++;
 	}
 	mlx_loop(a->mlx_ptr);
 	return ;
