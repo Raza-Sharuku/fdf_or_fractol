@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:05:28 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/10 20:31:51 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/10 21:30:34 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int argc, char *argv[])
 	a.array = make_array(argv, &a);
 	// print_array(&a);
 	a.mlx_ptr = mlx_init();
-	a.win = mlx_new_window(a.mlx_ptr, 600, 600, "raza");
+	a.win = mlx_new_window(a.mlx_ptr, 1000, 1000, "raza");
 	a.zoom = 20;
 	draw_win(&a);
 	// bresenham(10, 10, 400, 200, &a);

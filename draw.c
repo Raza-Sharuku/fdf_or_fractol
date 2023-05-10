@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:32:34 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/10 21:11:32 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/10 21:53:29 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,13 @@ float	ft_abs(float i)
 	return (i);
 }
 
+void	isometric(float *x, float *y, int z)
+{
+	z = 0;
+	*x = (*x - *y) * cos(0.8);
+	*y = (*x + *y) * sin(0.8) - z;
+}
+
 void	bresenham(float x, float y, float x1, float y1, t_array *a)
 {
 	int	Max;
@@ -79,23 +86,30 @@ void	bresenham(float x, float y, float x1, float y1, t_array *a)
 	
 	z = a->array[(int)y][(int)x][0];
 	z1 = a->array[(int)y1][(int)x1][0];
-
+// zoom----------------------------
 	x *= a->zoom;
 	x1 *= a->zoom;
 	y *= a->zoom;
 	y1 *= a->zoom;
-
-	x_step = ft_abs(x1) - ft_abs(x);
-	y_step = ft_abs(y1) - ft_abs(y);
-
-	if (z != 0)
-		a->color = 0x443333;
+// color----------------------------
+	if (z != 0 || z1 != 0)
+		a->color = 0x33ffff;
 	else
 		a->color = 0xffffff;
+// 3D----------------------------
+	isometric(&x, &y, z);
+	isometric(&x1, &y1, z1);
+// shift
+	x += 150;
+	x1 += 150;
+	y += 150;
+	y1 += 150;
 
-	if (x_step  > y_step)
+	x_step = x1 - x;
+	y_step = y1 - y;
+	if (ft_abs(x_step)  > ft_abs(y_step))
 		Max = x_step;
-	else
+	if (ft_abs(x_step) < ft_abs(y_step))
 		Max = y_step;
 	x_step /= Max;
 	y_step /= Max;
