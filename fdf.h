@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/10 21:08:05 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/11 17:58:50 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@
 typedef struct s_array
 {
 	int		***array;
-	int		x_len;
-	int		y_len;
-	int		height;
+	double	x_len;
+	double	y_len;
+	double	height;
 	void	*mlx_ptr;
 	void	*win;
-	int 	zoom;
-	int 	color;
+	double 	zoom;
+	double 	color;
 }			t_array;
 // ft_error.c
 void				ft_arg_error(int argc, char *argv[], t_array *a);
@@ -62,7 +62,7 @@ void				ft_free_int2(t_array *a);
 int	to_demical(char *str);
 // draw.c
 void				draw_window(t_array *a);
-void				bresenham(float x, float y, float x1, float y1, t_array *a);
+void	bresenham(double x, double y, double x1, double y1, t_array *a);
 void				draw_win(t_array *a);
 
 
