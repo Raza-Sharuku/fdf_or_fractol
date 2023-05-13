@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:32:34 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/13 14:15:59 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/13 15:54:58 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ void	isometric(double *x, double *y, double z)
     double j = *y;
     // double k = *z;
 
-	*x = ((1 / sqrt(2)) * i) - ((1 / sqrt(2)) * j);
-	*y = ((1 / sqrt(6)) * i) + ((1 / sqrt(6)) * j) - ((2 / sqrt(6)) * z);	
+	// *x = ((1 / sqrt(2)) * i) - ((1 / sqrt(2)) * j);
+	// *y = ((1 / sqrt(6)) * i) + ((1 / sqrt(6)) * j) - ((2 / sqrt(6)) * z);
+	*x = (i - j) * cos(0.1);
+	*y = (i + j) * sin(0.9) - z;
+
 }
 
 double	Max_val(double a, double b)
@@ -56,10 +59,10 @@ void	bresenham(double x, double y, double x1, double y1, t_array *a)
 	isometric(&x1, &y1, z1);
 
 // shift--------------------------
-	x += 200;
-	y += 200;
-	x1 += 200;
-	y1 += 200;
+	x += 330;
+	y += 330;
+	x1 += 330;
+	y1 += 330;
 
 	dx = x1 - x;
 	dy = y1 - y;
@@ -72,7 +75,7 @@ void	bresenham(double x, double y, double x1, double y1, t_array *a)
 		mlx_pixel_put(a->mlx_ptr, a->win, x, y, a->color);
 		x += dx;
 		y += dy;
-		if (x > 500 || y > 500 || x < 0 || y < 0)
+		if (x > 1500 || y > 1500 || x < 0 || y < 0)
 			break;
 	}
 	return ;
