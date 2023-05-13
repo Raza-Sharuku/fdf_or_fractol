@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   atoi_hexa_demical.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 13:38:00 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/11 14:27:24 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/13 12:41:44 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	return_num(char c)
 	if (c >= '0' && c <= '9')
 		return (c - '0');
 	else if (c >= 'a' && c <= 'f')
-		return (10 + c - '0');
+		return (10 + c - 'a');
 	else
 		return (-1);
 }
@@ -28,7 +28,8 @@ int	to_demical(char *str)
 	int	num;
 
 	demical = 0;
-	str = (str + 2);
+	str++;
+	str++;
 	while (str)
 	{
 		num = return_num(ft_tolower(*str));

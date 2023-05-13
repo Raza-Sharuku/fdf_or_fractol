@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:37:40 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/06 19:53:47 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/13 15:20:27 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	count_lens(char **str)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] && str[i][0] != '\n')
 		i++;
 	return (i);
 }
@@ -38,13 +38,13 @@ int	is_map_ok(int fd, t_array *a, int next_len)
 		ft_free_fdf(splited);
 		free(str);
 		a->y_len++;
-		if (a->x_len != next_len)
+		if ((int)a->x_len != next_len)
 		{
 			ft_putstr_fd("Found wrong line length. Exiting.\n", 2);
 			exit(1);
 		}
 	}
-	return (a->y_len);
+	return ((int)a->y_len);
 }
 
 void	is_map_square(int fd, t_array *a)

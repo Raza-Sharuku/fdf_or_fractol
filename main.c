@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:05:28 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/11 17:27:23 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/13 14:31:16 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(int argc, char *argv[])
 	t_array	a;
 
 	ft_arg_error(argc, argv, &a);
-	// printf("a.x_len = %d || a.y_len = %d\n", a.x_len, a.y_len);
+	printf("a.x_len = %f || a.y_len = %f\n", a.x_len, a.y_len);
 	a.array = make_array(argv, &a);
 	// print_array(&a);
 	a.mlx_ptr = mlx_init();

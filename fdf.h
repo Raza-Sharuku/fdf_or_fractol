@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/11 17:58:50 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/13 12:32:50 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_array
 	void	*mlx_ptr;
 	void	*win;
 	double 	zoom;
-	double 	color;
+	int 	color;
 }			t_array;
 // ft_error.c
 void				ft_arg_error(int argc, char *argv[], t_array *a);

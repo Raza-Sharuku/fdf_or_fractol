@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 19:56:54 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/09 17:43:21 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/13 14:32:04 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,17 @@ void	make_int_list(char ***str, t_array *a)
 
 	a->array = (int ***)malloc(sizeof(int **) * a->y_len);
 	i = 0;
-	while (i < a->y_len)
+	while (i < (int)a->y_len)
 	{
 		a->array[i] = (int **)malloc(sizeof(int *) * a->x_len);
 		j = 0;
-		while (j < a->x_len)
+		while (j < (int)a->x_len)
 		{
 			a->array[i][j] = (int *)malloc(sizeof(int) * 2);
 			color_s = ft_split(str[i][j], ',');
 			a->array[i][j][0] = ft_atoi_fdf(str[i][j]);
-			a->array[i][j][1] = 0;
+			if (color_s[1] == NULL)
+				a->array[i][j][1] = to_demical("0xffffff");
 			if (color_s[1] != NULL)
 				a->array[i][j][1] = to_demical(color_s[1]);
 			ft_free_fdf(color_s);
