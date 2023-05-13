@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:05:28 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/13 15:44:37 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/13 18:08:05 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ int	main(int argc, char *argv[])
 	a.array = make_array(argv, &a);
 	// print_array(&a);
 	a.mlx_ptr = mlx_init();
-	a.win = mlx_new_window(a.mlx_ptr, 900, 900, "raza");
-	a.zoom = 10;
+	a.win = mlx_new_window(a.mlx_ptr, 800, 800, "raza");
+	a.zoom = 2;
 	draw_win(&a);
 	// mlx_key_hook(a.win, deal_key, 0);
 	mlx_loop(a.mlx_ptr);
