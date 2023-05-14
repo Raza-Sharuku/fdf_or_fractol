@@ -6,24 +6,24 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:32:34 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/14 17:20:09 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/14 12:04:39 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
 #include"./minilibx-linux/mlx.h"
 
-void	isometric(double *x, double *y, t_array *a)
+void	isometric(double *x, double *y, double z)
 {
-    double	i;
-    double	j;
-	int		z;
+    double i = *x;
+    double j = *y;
+    // double k = *z;
 
-	i = *x;
-    j = *y;
-	z = z = a->array[(int)y][(int)x][0];
 	*x = ((1 / sqrt(2)) * i) - ((1 / sqrt(2)) * j);
 	*y = ((1 / sqrt(6)) * i) + ((1 / sqrt(6)) * j) - ((2 / sqrt(6)) * z);
+	// *x = (i - j) * cos(1);
+	// *y = (i + j) * sin(1) - z;
+
 }
 
 double	Max_val(double a, double b)
@@ -37,28 +37,32 @@ double	Max_val(double a, double b)
 	return (b);
 }
 
-void	zoom_shift(double x, double y, double x1, double y1, t_array *a)
-{
-	x = x * a->zoom + a->shift;
-	y = y * a->zoom + a->shift;
-	x1 = x1 * a->zoom + a->shift;
-	y1 = y1 * a->zoom + a->shift;
-	return (0);
-}
 void	bresenham(double x, double y, double x1, double y1, t_array *a)
 {
 	double	Max;
 	double	dx;
 	double	dy;
-	int *pos;
-
+	double	z;
+	double	z1;
+	
+	z = a->array[(int)y][(int)x][0];
+	z1 = a->array[(int)y1][(int)x1][0];
 // color----------------------------
 	a->color = a->array[(int)y][(int)x][1];
 // 3D----------------------------
-	isometric(&x, &y, a);
-	isometric(&x1, &y1, a);
-// zoom_shift----------------------------
-	zoom_shift(x, y, x1, y1, a);
+	isometric(&x, &y, z);
+	isometric(&x1, &y1, z1);
+// zoom----------------------------
+	x *= a->zoom;
+	y *= a->zoom;
+	x1 *= a->zoom;
+	y1 *= a->zoom;
+
+// shift--------------------------
+	x += a->shift;
+	y += a->shift;
+	x1 += a->shift;
+	y1 += a->shift;
 
 	dx = x1 - x;
 	dy = y1 - y;
@@ -66,38 +70,58 @@ void	bresenham(double x, double y, double x1, double y1, t_array *a)
 	Max = Max_val(dx, dy);
 	dx /= Max;
 	dy /= Max;
-	// char *get_addr;
 	while ((int)(x - x1) || (int)(y - y1))
 	{
-		a->img_ptr = mlx_get_data_addr(a->img_ptr, a->array[(int)y][(int)x][1],);
+		mlx_pixel_put(a->mlx_ptr, a->win, x, y, a->color);
 		// a->color += (dx + dy);
 		x += dx;
 		y += dy;
+		if (x < 0 || y < 0)
+			break ;
 	}
 	return ;
 }
+
+// void	draw_win(t_array *a)
+// {
+// 	int	x;
+// 	int	y;
+
+// 	y = 0;
+// 	while (y < a->y_len)
+// 	{
+// 		x = 0;
+// 		while (x < a->x_len)
+// 		{
+// 			if (x < a->x_len - 1)
+// 				bresenham(x, y, x + 1, y, a);
+// 			if (y < a->y_len - 1)
+// 				bresenham(x, y, x, y + 1, a);
+// 			x++;
+// 		}
+// 		y++;
+// 	}
+// }
+
 
 void	draw_win(t_array *a)
 {
 	int	x;
 	int	y;
 
-	y = 0;
-	while (y < a->y_len)
+	x = 0;
+	while (x < a->x_len)
 	{
-		x = 0;
-		while (x < a->x_len)
+		y = 0;
+		while (y < a->y_len)
 		{
-			if (x < a->x_len - 1)
-				bresenham(x, y, x + 1, y, a);
 			if (y < a->y_len - 1)
-				bresenham(x, y, x, y + 1, a);
-			x++;
+				bresenham(x, y + 1, x, y, a);
+			if (x < a->x_len - 1)
+				bresenham(x + 1, y, x, y, a);
+			y++;
 		}
-		y++;
+		x++;
 	}
-	mlx_put_image_to_window(a->mlx_ptr, a->win, a->img_ptr, 0, 0);
-	return ;
 }
-
 

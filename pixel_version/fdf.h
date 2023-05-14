@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/14 14:35:04 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/14 11:18:15 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,9 @@ typedef struct s_array
 	double	height;
 	void	*mlx_ptr;
 	void	*win;
-	void	*img_ptr;
 	double 	zoom;
 	int 	color;
 	int		shift;
-
 }			t_array;
 // ft_error.c
 void				ft_arg_error(int argc, char *argv[], t_array *a);
