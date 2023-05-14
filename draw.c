@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:32:34 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/14 17:23:53 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/14 17:30:15 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,7 @@ void	bresenham(double x, double y, double x1, double y1, t_array *a)
 	char *get_addr;
 	while ((int)(x - x1) || (int)(y - y1))
 	{
-		get_addr = mlx_get_data_addr(a->img_ptr);
-		a->img_ptr = mlx_get_data_addr(a->img_ptr, a->array[(int)y][(int)x][1],);
+		get_addr = mlx_get_data_addr(a->img_ptr, a->array[(int)y][(int)x][1], );
 		// a->color += (dx + dy);
 		x += dx;
 		y += dy;
