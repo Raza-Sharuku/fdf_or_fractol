@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:32:34 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/14 17:20:09 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/14 17:23:53 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	zoom_shift(double x, double y, double x1, double y1, t_array *a)
 	y = y * a->zoom + a->shift;
 	x1 = x1 * a->zoom + a->shift;
 	y1 = y1 * a->zoom + a->shift;
-	return (0);
+	return ;
 }
 void	bresenham(double x, double y, double x1, double y1, t_array *a)
 {
@@ -66,9 +66,10 @@ void	bresenham(double x, double y, double x1, double y1, t_array *a)
 	Max = Max_val(dx, dy);
 	dx /= Max;
 	dy /= Max;
-	// char *get_addr;
+	char *get_addr;
 	while ((int)(x - x1) || (int)(y - y1))
 	{
+		get_addr = mlx_get_data_addr(a->img_ptr);
 		a->img_ptr = mlx_get_data_addr(a->img_ptr, a->array[(int)y][(int)x][1],);
 		// a->color += (dx + dy);
 		x += dx;
