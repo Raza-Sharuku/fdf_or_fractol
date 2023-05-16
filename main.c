@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:05:28 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/14 20:42:11 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/16 12:55:26 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,18 @@ void	print_array(t_array *a)
 	
 // }
 
+void	set_default(t_array *a, int argc, char *argv[])
+{
+	if (argc == 4)
+		a->height = ft_atoi_fdf(argv[3]);
+	else if (argc == 2)
+		a->height = 0;
+	a->zoom = 1.5;
+	a->shift_x = 600;
+	a->shift_y = 600;
+
+}
+
 int	main(int argc, char *argv[])
 {
 	t_array	a;
@@ -66,13 +78,14 @@ int	main(int argc, char *argv[])
 	printf("a.x_len = %f || a.y_len = %f\n", a.x_len, a.y_len);
 	a.array = make_array(argv, &a);
 	a.mlx_ptr = mlx_init();
-	a.win = mlx_new_window(a.mlx_ptr, 2000, 2000, "raza");
-	a.img_ptr = mlx_new_image(a.mlx_ptr, 2000, 2000);
-	a.zoom = 1.5;
-	a.shift = 600;
+	a.win = mlx_new_window(a.mlx_ptr, 1000, 1000, "raza");
+	a.img_ptr = mlx_new_image(a.mlx_ptr, 1000, 1000);
+	// set_default(&a, argv[3]);
+	a.zoom = 10;
+	a.shift_x = 10;
+	a.shift_y = 300;
 	draw_win(&a);
 	// mlx_key_hook(a.win, keys, &a);
 	mlx_loop(a.mlx_ptr);
 	return (0);
 }
-

@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/14 14:35:04 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/15 15:06:17 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,18 @@ typedef struct s_array
 	void	*img_ptr;
 	double 	zoom;
 	int 	color;
-	int		shift;
-
+	int		shift_y;
+	int		shift_x;
 }			t_array;
+typedef struct s_image
+{
+	double	Max;
+	double	dx;
+	double	dy;
+	int bit_pr_pxl;
+	int line_size;
+	int endian;
+}			t_image;
 // ft_error.c
 void				ft_arg_error(int argc, char *argv[], t_array *a);
 void				is_file_exit(char *path, t_array *a);
