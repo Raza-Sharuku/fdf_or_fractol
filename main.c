@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:05:28 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/16 17:52:24 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/16 21:25:44 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,13 @@ void	set_default(t_array *a, int argc, char *argv[])
 		a->height = ft_atoi_fdf(argv[3]);
 	else if (argc == 2)
 		a->height = 0;
-	x = 400 / a->x_len;
-	y = 400 / a->y_len;
-	if (x > y)
-		a->zoom = y;
-	else 
-		a->zoom = x;
-	a->shift_x = 200;
+	x = 500 / a->x_len;
+	y = 500 / a->y_len;
+	// if (x > y)
+	// 	a->zoom = 1.35;
+	// else 
+	a->zoom = 1.5;
+	a->shift_x = 10;
 	a->shift_y = 500;
 
 }
@@ -90,8 +90,8 @@ int	main(int argc, char *argv[])
 	a.win = mlx_new_window(a.mlx_ptr, 1000, 1000, "raza");
 	a.img_ptr = mlx_new_image(a.mlx_ptr, 1000, 1000);
 	set_default(&a, argc, &argv[3]);
-	// a.zoom = 10;
-	// a.shift_x = 10;
+	// a.zoom = 5;
+	// a.shift_x = 100;
 	// a.shift_y = 300;
 	draw_win(&a);
 	// mlx_key_hook(a.win, keys, &a);

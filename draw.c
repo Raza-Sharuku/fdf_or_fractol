@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:32:34 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/15 15:08:51 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/16 21:27:37 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ void	zoom_shift(double *x, double *y, double *x1, double *y1, t_array *a)
 
 void put_pixel_in_img(char **img_addr,t_image *img, int x, int y, int color)
 {
-	if (x > 0 && x < (img->line_size / 4) && y > 0 && y < 2000)
+	if (img->endian == 0 && x > 0 && x < (img->line_size / 4) && y > 0 && y < 1000)
 	{
 		(*img_addr)[x * 4 + y * img->line_size + 0] = color & 0xff;
 		(*img_addr)[x * 4 + y * img->line_size + 1] = (color >> 8) & 0xff;
 		(*img_addr)[x * 4 + y * img->line_size + 2] = (color >> 16) & 0xff;
-		(*img_addr)[x * 4 + y * img->line_size + 3] = 0x00;
+		(*img_addr)[x * 4 + y * img->line_size + 3] = (color >> 24);
 	}
 }
 
@@ -89,7 +89,7 @@ void	bresenham(double x, double y, double x1, double y1, t_array *a)
 	get_addr = mlx_get_data_addr(a->img_ptr, &img.bit_pr_pxl, &img.line_size, &img.endian);
 	while ((int)(x - x1) || (int)(y - y1))
 	{
-		put_pixel_in_img(&get_addr, &img, x, y, a->color); 
+		put_pixel_in_img(&get_addr, &img, x, y, a->color);
 		x += img.dx;
 		y += img.dy;
 	}
@@ -110,7 +110,7 @@ void	draw_win(t_array *a)
 			if (x < a->x_len - 1)
 				bresenham(x, y, x + 1, y, a);
 			if (y < a->y_len - 1)
-				bresenham(x, y, x, y +1, a);
+				bresenham(x, y, x, y + 1, a);
 			x++;
 		}
 		y++;
