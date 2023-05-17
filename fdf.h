@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/15 15:06:17 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/17 12:06:09 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,23 @@
 # include <math.h>
 
 // structs use in fdf
-typedef struct s_array
+typedef struct s_balance
 {
-	int		***array;
-	double	x_len;
-	double	y_len;
-	double	height;
-	void	*mlx_ptr;
-	void	*win;
-	void	*img_ptr;
-	double 	zoom;
-	int 	color;
+	double	zoom;	
 	int		shift_y;
 	int		shift_x;
+}		t_balance;
+typedef struct s_array
+{
+	int					***array;
+	double				x_len;
+	double				y_len;
+	double				height;
+	void				*mlx_ptr;
+	void				*win;
+	void				*img_ptr;
+	int 				color;
+	struct s_balance	set;
 }			t_array;
 typedef struct s_image
 {
@@ -73,8 +77,8 @@ void				ft_free_int2(t_array *a);
 // atoi_hexa_demical.c
 int	to_demical(char *str);
 // draw.c
-void				draw_window(t_array *a);
-void	bresenham(double x, double y, double x1, double y1, t_array *a);
+// void				bresenham(t_array *a);
+void				bresenham(double x, double y, double x1, double y1, t_array *a);
 void				draw_win(t_array *a);
 
 

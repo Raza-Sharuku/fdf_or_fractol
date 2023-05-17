@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:32:34 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/17 15:48:54 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/17 11:08:22 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,12 @@ void	isometric(double *x, double *y, t_array *a)
 	i = *x;
 	j = *y;
 	z = a->array[(int)j][(int)i][0];
-	if (z != 0 && a->height != 0)
-		z = a->height;
 	*x= i * cos(-1.5708) - j * sin(-1.5708);
 	*y= i * sin(-1.5708) + j * cos(-1.5708);
 	i = *x;
 	j = *y;
 	*x = ((1 / sqrt(2)) * i) - ((1 / sqrt(2)) * j);
 	*y = ((1 / sqrt(6)) * i) + ((1 / sqrt(6)) * j) - ((2 / sqrt(6)) * z);
-	return ;
 }
 
 double	Max_val(double a, double b)
@@ -62,13 +59,6 @@ void put_pixel_in_img(char **img_addr,t_image *img, int x, int y, int color)
 		(*img_addr)[x * 4 + y * img->line_size + 1] = (color >> 8) & 0xff;
 		(*img_addr)[x * 4 + y * img->line_size + 2] = (color >> 16) & 0xff;
 		(*img_addr)[x * 4 + y * img->line_size + 3] = (color >> 24);
-	}
-	if (img->endian == 1 && x > 0 && x < (img->line_size / 4) && y > 0 && y < 1000)
-	{
-		(*img_addr)[x * 4 + y * img->line_size + 3] = color & 0xff;
-		(*img_addr)[x * 4 + y * img->line_size + 2] = (color >> 8) & 0xff;
-		(*img_addr)[x * 4 + y * img->line_size + 1] = (color >> 16) & 0xff;
-		(*img_addr)[x * 4 + y * img->line_size + 0] = (color >> 24);
 	}
 }
 

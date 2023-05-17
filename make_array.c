@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 19:56:54 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/13 17:05:26 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/17 11:06:07 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,22 @@ char	***splited_map(int fd, t_array *a)
 	return (str2);
 }
 
+void	set_height_color(t_array *a, int i, int j, char *str)
+{
+	char	**color;
+
+	color = ft_split(str, ',');
+	a->array[i][j][0] = ft_atoi_fdf(str);
+	if (color[1] == NULL)
+		a->array[i][j][1] = to_demical("0xffffff");
+	if (color[1] != NULL)
+		a->array[i][j][1] = to_demical(color[1]);
+	ft_free_fdf(color);
+	return ;
+}
+
 void	make_int_list(char ***str, t_array *a)
 {
-	char	**color_s;
 	int		i;
 	int		j;
 
@@ -48,13 +61,7 @@ void	make_int_list(char ***str, t_array *a)
 		while (j < (int)a->x_len)
 		{
 			a->array[i][j] = (int *)malloc(sizeof(int) * 2);
-			color_s = ft_split(str[i][j], ',');
-			a->array[i][j][0] = ft_atoi_fdf(str[i][j]);
-			if (color_s[1] == NULL)
-				a->array[i][j][1] = to_demical("0xffffff");
-			if (color_s[1] != NULL)
-				a->array[i][j][1] = to_demical(color_s[1]);
-			ft_free_fdf(color_s);
+			set_height_color(a, i, j, str[i][j]);
 			j++;
 		}
 		i++;
