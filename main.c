@@ -69,7 +69,7 @@ void	set_default(t_array *a, int argc, char **argv)
 		a->height = ft_atoi_fdf(argv[3]);
 	else if (argc == 2)
 		a->height = 0;
-	if (a->height != 0 && a->height > height_max)
+	if (a->height != 0 && a->height > height_max && a->height * a->y_len < 800)
 		height_max = a->height;
 	x = 800 / a->x_len;
 	y = 800 / a->y_len;
