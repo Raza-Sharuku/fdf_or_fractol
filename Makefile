@@ -19,6 +19,7 @@ SRCS	=	main.c \
 			atoi_hexa_demical.c \
 			malloc_utils2.c \
 			draw.c \
+			draw2.c \
 			set_default.c
 
 OBJS = ${SRCS:%.c=%.o}

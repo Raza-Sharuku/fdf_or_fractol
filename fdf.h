@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/18 14:40:42 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/18 20:51:31 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,10 @@ int	to_demical(char *str);
 // void				bresenham(t_array *a);
 void				bresenham(double x, double y, double x1, double y1, t_array *a);
 void				draw_win(t_array *a);
-
+void	put_pixel_in_img(char **img_addr,t_image *img, int x, int y, int color);
+void	zoom_shift(double *x, double *y, double *x1, double *y1, t_array *a);
+double	Max_val(double a, double b);
+void	isometric(double *x, double *y, t_array *a);
 // set_default.c
 void				set_default(t_array *a, int argc, char **argv);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_array.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 19:56:54 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/18 16:40:39 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/18 20:41:25 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ char	***splited_map(int fd, t_array *a)
 void	set_height_color(t_array *a, int i, int j, char *str)
 {
 	char	**color;
+	double	height_max;
 
+	height_max = 0;
 	color = ft_split(str, ',');
 	a->array[i][j][0] = ft_atoi_fdf(str);
 	if (a->height < a->array[i][j][0])
