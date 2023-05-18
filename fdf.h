@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/17 12:06:09 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/18 14:40:42 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,7 @@ int	to_demical(char *str);
 void				bresenham(double x, double y, double x1, double y1, t_array *a);
 void				draw_win(t_array *a);
 
+// set_default.c
+void				set_default(t_array *a, int argc, char **argv);
 
 #endif

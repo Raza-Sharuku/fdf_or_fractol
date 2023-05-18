@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 19:56:54 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/17 11:06:07 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/18 16:40:39 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	set_height_color(t_array *a, int i, int j, char *str)
 
 	color = ft_split(str, ',');
 	a->array[i][j][0] = ft_atoi_fdf(str);
+	if (a->height < a->array[i][j][0])
+		a->height = a->array[i][j][0];
 	if (color[1] == NULL)
 		a->array[i][j][1] = to_demical("0xffffff");
 	if (color[1] != NULL)
