@@ -3,50 +3,65 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:32:34 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/18 20:52:46 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/19 16:07:49 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
 #include"./minilibx-linux/mlx.h"
 
-/*26-27 rotating each value to 90° -> calculate the isometric value */
-
-
-void set_img_value(double x, double y, double x1, double y1, t_image *img)
+void	set_img_value(t_map *map, t_image *img)
 {
-	img->dx = x1 - x;
-	img->dy = y1 - y;
-	img->Max = Max_val(img->dx, img->dy);
+	img->dx = map->x1 - map->x;
+	img->dy = map->y1 - map->y;
+	img->Max = max_val(img->dx, img->dy);
 	img->dx /= img->Max;
 	img->dy /= img->Max;
 	return ;
 }
 
-void	bresenham(double x, double y, double x1, double y1, t_array *a)
+void	bresenham(t_map *m, t_array *a)
 {
 	t_image	img;
+	char	*get_addr;
 
-// color----------------------------
-	a->color = a->array[(int)y][(int)x][1];
-// 3D----------------------------
-	isometric(&x, &y, a);
-	isometric(&x1, &y1, a);
-// zoom_shift----------------------------
-	zoom_shift(&x, &y, &x1, &y1, a);
-
-	set_img_value(x, y, x1, y1, &img);
-	char *get_addr;
-	get_addr = mlx_get_data_addr(a->img_ptr, &img.bit_pr_pxl, &img.line_size, &img.endian);
-	while ((int)(x - x1) || (int)(y - y1))
+	a->color = a->array[(int)m->y][(int)m->x][1];
+	isometric(&m->x, &m->y, a);
+	isometric(&m->x1, &m->y1, a);
+	zoom_shift(&m->x, &m->y, a);
+	zoom_shift(&m->x1, &m->y1, a);
+	set_img_value(m, &img);
+	get_addr = mlx_get_data_addr(a->img_ptr,
+			&img.bit_pr_pxl, &img.line_size, &img.endian);
+	img.color = a->color;
+	while ((int)(m->x - m->x1) || (int)(m->y - m->y1))
 	{
-		put_pixel_in_img(&get_addr, &img, x, y, a->color);
-		x += img.dx;
-		y += img.dy;
+		put_pixel_in_img(&get_addr, &img, m->x, m->y);
+		m->x += img.dx;
+		m->y += img.dy;
 	}
+	return ;
+}
+
+void	draw_win2(int x, int y, t_array *a)
+{
+	t_map	map;
+
+	map.x = x;
+	map.y = y;
+	map.x1 = x + 1;
+	map.y1 = y;
+	if (x < a->x_len - 1)
+		bresenham(&map, a);
+	map.x = x;
+	map.y = y;
+	map.x1 = x;
+	map.y1 = y + 1;
+	if (y < a->y_len - 1)
+		bresenham(&map, a);
 	return ;
 }
 
@@ -61,10 +76,7 @@ void	draw_win(t_array *a)
 		x = 0;
 		while (x < a->x_len)
 		{
-			if (x < a->x_len - 1)
-				bresenham(x, y, x + 1, y, a);
-			if (y < a->y_len - 1)
-				bresenham(x, y, x, y + 1, a);
+			draw_win2(x, y, a);
 			x++;
 		}
 		y++;
@@ -72,4 +84,3 @@ void	draw_win(t_array *a)
 	mlx_put_image_to_window(a->mlx_ptr, a->win, a->img_ptr, 0, 0);
 	return ;
 }
-

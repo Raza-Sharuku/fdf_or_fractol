@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/18 20:51:31 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/19 16:55:42 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@
 # include <math.h>
 
 // structs use in fdf
+typedef struct s_map
+{
+	double	x;	
+	double	x1;	
+	double	y;	
+	double	y1;	
+
+}		t_map;
 typedef struct s_balance
 {
 	double	zoom;	
@@ -47,6 +55,7 @@ typedef struct s_array
 }			t_array;
 typedef struct s_image
 {
+	int 	color;
 	double	Max;
 	double	dx;
 	double	dy;
@@ -77,13 +86,11 @@ void				ft_free_int2(t_array *a);
 // atoi_hexa_demical.c
 int	to_demical(char *str);
 // draw.c
-// void				bresenham(t_array *a);
-void				bresenham(double x, double y, double x1, double y1, t_array *a);
 void				draw_win(t_array *a);
-void	put_pixel_in_img(char **img_addr,t_image *img, int x, int y, int color);
-void	zoom_shift(double *x, double *y, double *x1, double *y1, t_array *a);
-double	Max_val(double a, double b);
-void	isometric(double *x, double *y, t_array *a);
+void				put_pixel_in_img(char **img_addr,t_image *img, int x, int y);
+void				zoom_shift(double *x, double *y, t_array *a);
+double				max_val(double a, double b);
+void				isometric(double *x, double *y, t_array *a);
 // set_default.c
 void				set_default(t_array *a, int argc, char **argv);
 

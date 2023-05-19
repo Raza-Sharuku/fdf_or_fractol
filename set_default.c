@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_default.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 14:35:16 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/18 20:40:55 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/19 16:56:04 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,17 @@ void	set_default(t_array *a, int argc, char **argv)
 	double	height_max;
 
 	height_max = a->height;
-	if (argc == 4)
-		a->height = ft_atoi_fdf(argv[3]);
-	else if (argc == 2)
+	if (argc == 2)
 		a->height = 0;
 	if (a->height != 0 && a->height > height_max && a->height * a->y_len < 800)
 		height_max = a->height;
 	a->set.shift_x = 100;
-	a->set.shift_y = 500;
 	set_zoom(a, height_max, 0);
+	if (argc == 4)
+	{
+		a->set.zoom = ft_atoi_fdf(argv[2]);
+		a->height = ft_atoi_fdf(argv[3]);
+	}
+	a->set.shift_y = 500;
 	return ;
 }
