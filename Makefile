@@ -1,8 +1,8 @@
 CC = cc
 NAME = $(NAME)
 NAME	=	fdf
-CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address -g
-# -fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror 
+# -fsanitize=address -g
 
 # ↓this for 42cluster
 # MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
