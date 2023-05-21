@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/21 15:41:52 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/21 16:47:13 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,5 @@ void				isometric(double *x, double *y, t_array *a);
 void				set_default(t_array *a, int argc, char **argv);
 // handle_window.c
 int					handle_win(int key, t_array *a);
-
+int					handle_mouse(int button, int x, int y, t_array *a);
 #endif
