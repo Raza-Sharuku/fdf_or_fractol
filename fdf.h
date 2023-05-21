@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/19 16:55:42 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/21 15:41:52 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ typedef struct s_map
 {
 	double	x;	
 	double	x1;	
-	double	y;	
-	double	y1;	
-
+	double	y;
+	double	y1;
 }		t_map;
 typedef struct s_balance
 {
-	double	zoom;	
+	double	zoom;
 	int		shift_y;
 	int		shift_x;
+	double	angel;
 }		t_balance;
 typedef struct s_array
 {
@@ -50,18 +50,18 @@ typedef struct s_array
 	void				*mlx_ptr;
 	void				*win;
 	void				*img_ptr;
-	int 				color;
+	int					color;
 	struct s_balance	set;
 }			t_array;
 typedef struct s_image
 {
-	int 	color;
-	double	Max;
+	int		color;
+	double	max;
 	double	dx;
 	double	dy;
-	int bit_pr_pxl;
-	int line_size;
-	int endian;
+	int		bit_pr_pxl;
+	int		line_size;
+	int		endian;
 }			t_image;
 // ft_error.c
 void				ft_arg_error(int argc, char *argv[], t_array *a);
@@ -84,14 +84,16 @@ char				***three_malloc(t_array *a);
 char				*int_malloc(t_array *a, int i, int len);
 void				ft_free_int2(t_array *a);
 // atoi_hexa_demical.c
-int	to_demical(char *str);
+int					to_demical(char *str);
 // draw.c
 void				draw_win(t_array *a);
-void				put_pixel_in_img(char **img_addr,t_image *img, int x, int y);
+void				pxl_in_img(char **i_adr, t_image *img, int x, int y);
 void				zoom_shift(double *x, double *y, t_array *a);
 double				max_val(double a, double b);
 void				isometric(double *x, double *y, t_array *a);
 // set_default.c
 void				set_default(t_array *a, int argc, char **argv);
+// handle_window.c
+int					handle_win(int key, t_array *a);
 
 #endif

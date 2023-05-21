@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:55:01 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/19 16:00:55 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/21 15:42:31 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	isometric(double *x, double *y, t_array *a)
 	z = a->array[(int)j][(int)i][0];
 	if (z != 0 && a->height != 0)
 		z = a->height;
-	*x = i * cos(-1.5708) - j * sin(-1.5708);
-	*y = i * sin(-1.5708) + j * cos(-1.5708);
+	*x = i * cos(a->set.angel) - j * sin(a->set.angel);
+	*y = i * sin(a->set.angel) + j * cos(a->set.angel);
 	i = *x;
 	j = *y;
 	*x = ((1 / sqrt(2)) * i) - ((1 / sqrt(2)) * j);
@@ -51,7 +51,7 @@ void	zoom_shift(double *x, double *y, t_array *a)
 	return ;
 }
 
-void	put_pixel_in_img(char **i_adr, t_image *img, int x, int y)
+void	pxl_in_img(char **i_adr, t_image *img, int x, int y)
 {
 	if (img->endian == 0 && x > 0 && x
 		< (img->line_size / 4) && y > 0 && y < 1000)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:32:34 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/19 16:07:49 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/21 15:30:27 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	set_img_value(t_map *map, t_image *img)
 {
 	img->dx = map->x1 - map->x;
 	img->dy = map->y1 - map->y;
-	img->Max = max_val(img->dx, img->dy);
-	img->dx /= img->Max;
-	img->dy /= img->Max;
+	img->max = max_val(img->dx, img->dy);
+	img->dx /= img->max;
+	img->dy /= img->max;
 	return ;
 }
 
@@ -39,7 +39,7 @@ void	bresenham(t_map *m, t_array *a)
 	img.color = a->color;
 	while ((int)(m->x - m->x1) || (int)(m->y - m->y1))
 	{
-		put_pixel_in_img(&get_addr, &img, m->x, m->y);
+		pxl_in_img(&get_addr, &img, m->x, m->y);
 		m->x += img.dx;
 		m->y += img.dy;
 	}
@@ -70,6 +70,7 @@ void	draw_win(t_array *a)
 	int	x;
 	int	y;
 
+	a->img_ptr = mlx_new_image(a->mlx_ptr, 1000, 1000);
 	y = 0;
 	while (y < a->y_len)
 	{
