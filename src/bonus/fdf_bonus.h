@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/23 15:54:40 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/23 17:32:47 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include <sys/stat.h>
 # include"../../libs/ft_printf/ft_printf.h"
 # include"../../libs/libft/libft.h"
-#include "../../minilibx-linux/mlx.h"
+# include "../../minilibx-linux/mlx.h"
 # include <math.h>
 
 // structs use in fdf
@@ -93,16 +93,15 @@ void				draw_win(t_array *a);
 void				pxl_in_img(char **i_adr, t_image *img, int x, int y);
 void				zoom_shift(double *x, double *y, t_array *a);
 double				max_val(double a, double b);
-void				isometric(double *x, double *y, t_array *a);
+void				cabinet(double *x, double *y, t_array *a);
 // set_default.c
 void				set_default(t_array *a, int argc, char **argv);
 // handle_window.c
 int					handle_win(int key, t_array *a);
 int					handle_mouse(int button, int x, int y, t_array *a);
 // rotate_xyz.c
-void	rotate_z(double *x, double *y, t_array *a);
-void	rotate_y(double *x, double *z, t_array *a);
-void	rotate_x(double *y, double *z, t_array *a);
-
+void				rotate_z(double *x, double *y, t_array *a);
+void				rotate_y(double *x, double *z, t_array *a);
+void				rotate_x(double *y, double *z, t_array *a);
 
 #endif

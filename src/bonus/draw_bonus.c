@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:32:34 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/23 15:54:18 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/23 17:25:43 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	bresenham(t_map *m, t_array *a)
 	char	*get_addr;
 
 	a->color = a->array[(int)m->y][(int)m->x][1];
-	isometric(&m->x, &m->y, a);
-	isometric(&m->x1, &m->y1, a);
+	cabinet(&m->x, &m->y, a);
+	cabinet(&m->x1, &m->y1, a);
 	zoom_shift(&m->x, &m->y, a);
 	zoom_shift(&m->x1, &m->y1, a);
 	set_img_value(m, &img);
