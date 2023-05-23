@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:32:34 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/21 15:30:27 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/23 15:43:24 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
-#include"./minilibx-linux/mlx.h"
 
 void	set_img_value(t_map *map, t_image *img)
 {

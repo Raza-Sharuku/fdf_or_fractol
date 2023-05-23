@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fdf_main_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:05:28 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/23 11:15:47 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/23 15:53:35 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./minilibx-linux/mlx.h"
-#include "fdf.h"
+#include "fdf_bonus.h"
 
 int	destory(t_array *a)
 {

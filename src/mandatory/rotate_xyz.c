@@ -6,12 +6,11 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:55:03 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/23 10:56:33 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/23 15:40:28 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
-#include"./minilibx-linux/mlx.h"
 
 void	rotate_x(double *y, double *z, t_array *a)
 {

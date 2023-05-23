@@ -6,12 +6,11 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:55:01 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/23 11:15:02 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/23 15:43:36 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
-#include"./minilibx-linux/mlx.h"
 
 void	isometric(double *x, double *y, t_array *a)
 {

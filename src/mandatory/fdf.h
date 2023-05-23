@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/23 10:56:13 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/23 15:43:12 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/stat.h>
-# include"./libs/ft_printf/ft_printf.h"
-# include"./libs/libft/libft.h"
+# include"../../libs/ft_printf/ft_printf.h"
+# include"../../libs/libft/libft.h"
+#include "../../minilibx-linux/mlx.h"
 # include <math.h>
 
 // structs use in fdf

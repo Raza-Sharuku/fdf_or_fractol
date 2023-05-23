@@ -6,11 +6,10 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 14:35:16 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/23 10:56:49 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/23 15:40:23 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./minilibx-linux/mlx.h"
 #include "fdf.h"
 
 void	set_zoom(t_array *a, int height_max, double up_right)
