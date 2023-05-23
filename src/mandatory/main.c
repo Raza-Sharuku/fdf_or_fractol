@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:05:28 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/23 15:42:53 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/24 08:47:30 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ int	destory(t_array *a)
 	free(a->mlx_ptr);
 	ft_free_int2(a);
 	exit (0);
+}
+
+int	minimize(t_array *a)
+{
+	draw_win(a);
+	return (0);
 }
 
 int	main(int argc, char *argv[])
@@ -34,6 +40,7 @@ int	main(int argc, char *argv[])
 	mlx_hook(a.win, 2, 1L << 0, &handle_win, &a);
 	mlx_hook(a.win, 4, 1L << 2, &handle_mouse, &a);
 	mlx_hook(a.win, 17, 0, &destory, &a);
+	mlx_hook(a.win, 12, 0, &minimize, &a);
 	mlx_loop(a.mlx_ptr);
 	return (0);
 }
