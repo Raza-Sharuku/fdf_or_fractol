@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_default.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 14:35:16 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/05/21 15:38:06 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/23 10:56:49 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ void	set_default(t_array *a, int argc, char **argv)
 		a->set.zoom = ft_atoi_fdf(argv[2]);
 		a->height = ft_atoi_fdf(argv[3]);
 	}
-	a->set.angel = -1.5708;
+	a->set.z_a = 0;
+	a->set.y_a = 0;
+	a->set.x_a = 0;
 	a->set.shift_y = 500;
 	return ;
 }

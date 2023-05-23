@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_window.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:55:13 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/23 11:06:42 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/21 17:15:35 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,30 +24,22 @@ int	handle_zoom(int key, t_array *a)
 
 int	handle_rotate(int key, t_array *a)
 {
-	if (key == 122)
-		a->set.z_a += 0.1;
-	if (key == 107)
-		a->set.z_a -= 0.1;
-	if (key == 121)
-		a->set.y_a += 0.1;
-	if (key == 106)
-		a->set.y_a -= 0.1;
-	if (key == 120)
-		a->set.x_a += 0.1;
-	if (key == 105)
-		a->set.x_a -= 0.1;
+	if (key == 15)
+		a->set.angel += 0.1;
+	if (key == 37)
+		a->set.angel -= 0.1;
 	return (0);
 }
 
 int	handle_translate(int key, t_array *a)
 {
-	if (key == 65361)
+	if (key == 123)
 		a->set.shift_x -= 10;
-	if (key == 65363)
+	if (key == 124)
 		a->set.shift_x += 10;
-	if (key == 65364)
+	if (key == 125)
 		a->set.shift_y += 10;
-	if (key == 65362)
+	if (key == 126)
 		a->set.shift_y -= 10;
 	return (0);
 }
@@ -77,6 +69,10 @@ int	handle_mouse(int button, int x, int y, t_array *a)
 		a->set.zoom *= 1.1;
 	if (button == 4)
 		a->set.zoom *= 0.9;
+	if (button == 1)
+		a->set.angel += 0.1;
+	if (button == 2)
+		a->set.angel -= 0.1;
 	if (x == y)
 		return (0);
 	mlx_destroy_image(a->mlx_ptr, a->img_ptr);

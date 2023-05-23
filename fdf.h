@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:33:03 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/21 16:47:13 by sraza            ###   ########.fr       */
+/*   Updated: 2023/05/23 10:56:13 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ typedef struct s_balance
 	double	zoom;
 	int		shift_y;
 	int		shift_x;
-	double	angel;
+	double	x_a;
+	double	y_a;
+	double	z_a;
 }		t_balance;
 typedef struct s_array
 {
@@ -96,4 +98,10 @@ void				set_default(t_array *a, int argc, char **argv);
 // handle_window.c
 int					handle_win(int key, t_array *a);
 int					handle_mouse(int button, int x, int y, t_array *a);
+// rotate_xyz.c
+void	rotate_z(double *x, double *y, t_array *a);
+void	rotate_y(double *x, double *z, t_array *a);
+void	rotate_x(double *y, double *z, t_array *a);
+
+
 #endif
