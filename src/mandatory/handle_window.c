@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_window.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:55:13 by sraza             #+#    #+#             */
-/*   Updated: 2023/05/23 15:43:56 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/05/23 19:43:01 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ int	handle_translate(int key, t_array *a)
 
 int	handle_win(int key, t_array *a)
 {
-	printf("key = %i\n", key);
-	if (key == 53)
+	if (key == 65307)
 	{
 		mlx_destroy_window(a->mlx_ptr, a->win);
 		free(a->mlx_ptr);
@@ -71,7 +70,6 @@ int	handle_win(int key, t_array *a)
 
 int	handle_mouse(int button, int x, int y, t_array *a)
 {
-	printf("button = %i\n", button);
 	if (button == 5)
 		a->set.zoom *= 1.1;
 	if (button == 4)
